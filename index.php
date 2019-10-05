@@ -19,7 +19,7 @@
             <li><a href="#">about</a></li>
             <li><a href="#">services</a></li>
             <li><a href="login.php">Login</a></li>
-            <li><a href="#">Sigup</a></li>
+            <li><a href="signup.php">Sigup</a></li>
             <li><a href="#">
                 <i class="fa fa-user"></i>
                Satej Kokate
