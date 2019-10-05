@@ -1,0 +1,106 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color:;
+	background-image: linear-gradient(to right,#5a3ac9,#9073e9);
+	font-family: sans-serif;
+
+}
+
+.container{
+	position: fixed;
+	top: 15%;
+	left: 25%;
+	width:786px;
+	max-width: 100%;
+	min-height: 500px;
+	background: #fff;
+	margin: 0 auto;
+	border: none;
+	box-shadow: 0 10px 15px rgba(0,0,0,0.3)  ;
+	border-radius: 15px;
+}
+
+
+.container .left{
+	float: left;
+	width: 55%;
+	height: 500px;
+	background:linear-gradient(45deg,#5a3ac9,#9073e9),url("1.jpg") ;
+	background-size:  cover;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.container .right{
+	float: right;
+	width: 45%;
+	height: 500px;
+	box-sizing: border-box;
+
+}
+
+h1{
+	padding-left: 30px;
+	padding-top: 20px;
+	color: #664ec5;
+	letter-spacing: 0.5px;
+	line-height: 10px;
+	margin: 20px 0 30px;
+	font-size: 25px;
+	font-family: 'Muli', sans-serif;
+}
+
+form{
+	padding-top: 20%;
+	text-align: center;
+}
+form h2{
+	font-size: 23px;
+	color: #664ec5;
+	letter-spacing: 0.5px;
+	line-height: 10px;
+	margin: 20px 0 30px;
+	font-family: 'Muli', sans-serif;
+}
+
+form input{		/*here it starts*/
+	background: #fff;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: #9073e9;
+	padding: 12px 15px;
+	margin: 10px 0;
+	width: 60%;
+
+}
+form p{
+	font-size: 15px;
+	color: #664ec5;
+	margin-top: 0;
+	margin-bottom: 30px;
+	margin-left: 30%;
+	font-family: 'Muli', sans-serif;
+	letter-spacing: 0.1px;
+}
+
+button{
+	margin-top: 20px;
+	border-radius: 5px;
+	border:1px solid #664ec5;
+	background: #664ec5;
+	color: #fff;
+	font-size: 15px;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	transition: tranform 80ms ease-in;
+}
+
+form h3{
+	font-size: 15px;
+	color: #664ec5;
+	margin-top: 20;
+	margin-bottom: 30px;
+	font-family: 'Muli', sans-serif;
+}
