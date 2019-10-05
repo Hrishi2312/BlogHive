@@ -65,9 +65,9 @@
     $types = str_repeat('s',count($values));
     $stmt->bind_param($types,...$values);
     $stmt->execute();
-    $id = $stmt->insert_id;
+    return $stmt->insert_id;
   }
 
   $data = ['admin' => 1, 'username' => 'sattu123', 'email' => 'satejkokate123@gmail.com', 'password' => "sattu@1234"];
-  print_r(create('users', $data));
+  //print_r(create('users', $data));
  ?>
