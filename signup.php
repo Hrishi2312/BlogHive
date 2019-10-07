@@ -31,7 +31,7 @@ if(isset($_POST['submit-button'])) {
 				<input type="password" placeholder="Password" name="password">
 				<input type="password" placeholder="Confirm Password" name="passwordConf">
 				<button type="submit" name="submit-button">Sign Up</button>
-				<h3> Have Account?</h3>
+				<h3> <a href = "login.php">Have Account?</a></h3>
 			</form>
 
 

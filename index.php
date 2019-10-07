@@ -26,7 +26,7 @@
                 <i class="fa fa-chevron-down"></i>
                </a>
                 <ul>
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="admin/posts/">Dashboard</a></li>
                     <li><a href="#" class="out">Log out</a></li>
                 </ul>
             </li>

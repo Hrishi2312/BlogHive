@@ -1,0 +1,76 @@
+header {
+    background: #083739;
+}
+
+.admin-wrapper {
+    height: calc(100% - 66px);
+    display: flex;
+}
+
+.admin-wrapper .left-sidebar{
+    flex:2;
+    background: #234a57;
+}
+
+.admin-wrapper .admin-content{
+    flex:8;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+.admin-wrapper .left-sidebar ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    color: aliceblue;
+}
+
+.admin-wrapper .left-sidebar ul li a{
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #292020;
+}
+
+.admin-wrapper .left-sidebar ul li a:hover {
+    background: #083739;
+}
+
+.admin-content .page-title {
+    text-align: center;
+    margin-bottom: 1.1em
+}
+
+.admin-content form div{
+    padding: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+
+td, th{
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.edit{
+    color: red;
+}
+
+.delete{
+    color: blue;
+}
+
+.publish{
+    color: green;
+}
+
+.edit:hover,.delete:hover,.publish:hover {
+    text-decoration: underline;
+}
+
+
+
