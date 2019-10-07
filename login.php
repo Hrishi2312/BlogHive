@@ -4,11 +4,8 @@ if(isset($_POST['submit-button'])) {
 	unset($_POST['submit-button']);
 	$user = selectOne('users', ['email'=>$_POST['email']]);
 	$password = $user['password'];
-	echo $_POST['password'];
-	echo "<br>";
-	echo $password;
 	if(password_verify($_POST['password'], $password))
-		echo "You have successfully logged in.";
+		echo "<script>alert('You have successfully logged in.');</script>";
 	else
 		echo "Couldn't";
 }
