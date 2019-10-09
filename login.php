@@ -1,5 +1,5 @@
 <?php
-include('C:/xampp/htdocs/Blog/App/Database/db.php');
+include('C:/xamppNew/htdocs/BlogHive/App/Database/db.php');
 if(isset($_POST['submit-button'])) {
 	unset($_POST['submit-button']);
 	$user = selectOne('users', ['email'=>$_POST['email']]);

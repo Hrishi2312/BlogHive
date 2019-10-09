@@ -65,6 +65,7 @@
     $types = str_repeat('s',count($values));
     $stmt->bind_param($types,...$values);
     $stmt->execute();
+    error_reporting(E_All);  
     return $stmt->insert_id;
   }
 

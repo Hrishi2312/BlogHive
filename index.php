@@ -48,7 +48,7 @@
                     <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
 
                     <div class="post-info">
-                        <h4><a href="single.html">One day you will leave this world behind so live a life you will remember</a></h4>
+                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
                         <i class="far fa-user">Satej kokate</i>
                         &nbsp;
                         <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
@@ -58,7 +58,7 @@
                     <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
 
                     <div class="post-info">
-                        <h4><a href="single.html">One day you will leave this world behind so live a life you will remember</a></h4>
+                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
                         <i class="far fa-user">Satej kokate</i>
                         &nbsp;
                         <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
@@ -69,7 +69,7 @@
                     <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
 
                     <div class="post-info">
-                        <h4><a href="single.html">One day you will leave this world behind so live a life you will remember</a></h4>
+                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
                         <i class="far fa-user">Satej kokate</i>
                         &nbsp;
                         <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
@@ -79,18 +79,7 @@
                     <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
 
                     <div class="post-info">
-                        <h4><a href="single.html">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
-
-                    <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
-
-                    <div class="post-info">
-                        <h4><a href="single.html">One day you will leave this world behind so live a life you will remember</a></h4>
+                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
                         <i class="far fa-user">Satej kokate</i>
                         &nbsp;
                         <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
@@ -101,13 +90,23 @@
                     <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
 
                     <div class="post-info">
-                        <h4><a href="single.html">One day you will leave this world behind so live a life you will remember</a></h4>
+                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
                         <i class="far fa-user">Satej kokate</i>
                         &nbsp;
                         <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
                     </div>
                 </div>
-            </div>
+
+                    <div class="post">
+                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
+
+                    <div class="post-info">
+                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
+                        <i class="far fa-user">Satej kokate</i>
+                        &nbsp;
+                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
+                    </div>
+                </div>
         </div>
         <!--Page Slider-->
 
@@ -119,56 +118,56 @@
             <div class="post">
                 <img src="Assets/images/post2.jpeg" alt="" class="img-style">
                 <div class="post-preview">
-                    <h2><a href="single.html">The strongest and sweetest song yet ever to be sung</a></h2>
+                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
                     <i class="fa fa-user">Ranu Singh</i>
                     &nbsp;
                     <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
                     <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.html" class="btn read-more">Read More</a>
+                    <a href="single.php" class="btn read-more">Read More</a>
                 </div>
             </div>
             <div class="post">
                 <img src="Assets/images/post2.jpeg" alt="" class="img-style">
                 <div class="post-preview">
-                    <h2><a href="single.html">The strongest and sweetest song yet ever to be sung</a></h2>
+                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
                     <i class="fa fa-user">Ranu Singh</i>
                     &nbsp;
                     <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
                     <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.html" class="btn read-more">Read More</a>
+                    <a href="single.php" class="btn read-more">Read More</a>
                 </div>
             </div>
             <div class="post">
                 <img src="Assets/images/post2.jpeg" alt="" class="img-style">
                 <div class="post-preview">
-                    <h2><a href="single.html">The strongest and sweetest song yet ever to be sung</a></h2>
+                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
                     <i class="fa fa-user">Ranu Singh</i>
                     &nbsp;
                     <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
                     <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.html" class="btn read-more">Read More</a>
+                    <a href="single.php" class="btn read-more">Read More</a>
                 </div>
             </div>
             <div class="post">
                 <img src="Assets/images/post2.jpeg" alt="" class="img-style">
                 <div class="post-preview">
-                    <h2><a href="single.html">The strongest and sweetest song yet ever to be sung</a></h2>
+                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
                     <i class="fa fa-user">Ranu Singh</i>
                     &nbsp;
                     <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
                     <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.html" class="btn read-more">Read More</a>
+                    <a href="single.php" class="btn read-more">Read More</a>
                 </div>
             </div>
             <div class="post">
                 <img src="Assets/images/post2.jpeg" alt="" class="img-style">
                 <div class="post-preview">
-                    <h2><a href="single.html">The strongest and sweetest song yet ever to be sung</a></h2>
+                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
                     <i class="fa fa-user">Ranu Singh</i>
                     &nbsp;
                     <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
                     <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.html" class="btn read-more">Read More</a>
+                    <a href="single.php" class="btn read-more">Read More</a>
                 </div>
             </div>
         </div>
@@ -198,6 +197,7 @@
     </div>
 </div>
     <!--Content-->
+    </div>
 
     <!--footer-->
     <div class="footer">

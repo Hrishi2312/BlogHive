@@ -1,14 +1,33 @@
-<?php
-include('C:/xamppNew/htdocs/BlogHive/App/Database/db.php');
-if(isset($_POST['submit-button'])) {
-	unset($_POST['submit-button']);
-	$user = selectOne('users', ['email'=>$_POST['email']]);
-	$password = $user['password'];
-	if(password_verify($_POST['password'], $password))
-		echo "<script>alert('You have successfully logged in.');</script>";
-	else
-		echo "Couldn't";
-}
+<?php  
+    include('C:/xamppNew/htdocs/BlogHive/App/Database/db.php');
+    if(isset($_POST['add-post'])){
+        unset($_POST['add-post']);
+        print_r($_FILES['image']);
+        print_r($_POST);
+        $target_dir = "../../Assets/images/postImage/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $host = 'localhost';
+        $user = 'root';
+        $pass = '';
+        $dbName = 'blog';
+
+        $conn = new MySqli($host, $user, $pass, $dbName);
+        $image = $_FILES['image']['name'];
+        $title = $_POST['title'];
+        $body = $_POST['body'];
+        $topic = $_POST['topic'];
+        
+        $query = "INSERT INTO post (title, body, image,topic)
+        VALUES (?,?,?,?)";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("ssss", $title, $body,$image,$topic);
+        $stmt->execute();
+        
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";}
+        }
 ?>
 <!DOCTYPE>
 <html>
@@ -62,7 +81,7 @@ if(isset($_POST['submit-button'])) {
 
             <div class="content-create">
             <h2 class="page-title">Add Posts</h2>
-                <form action="create.html" method="post" class="form-style">
+                <form action="create.php" method="post" class="form-style" enctype="multipart/form-data">
                     <div>
                         <label>Title</label>
                         <input type="text" name="title"  class="text-input">
@@ -70,12 +89,12 @@ if(isset($_POST['submit-button'])) {
 
                     <div>
                         <label>Body</label>
-                        <textarea name="body" id="body"></textarea>
+                        <textarea name="body" id="body" name="body"></textarea>
                     </div>
                     
                     <div class="image-upload-wrapper">
                         <label>Preview image</label><br><br>
-                        <input type="file" name="preview-image" accept="image/*" class = "text-input" >
+                        <input type="file" name="image" class = "text-input" >
                     </div>
 
                     <div>
@@ -89,14 +108,13 @@ if(isset($_POST['submit-button'])) {
                     </div>
                     
                     <div>
-                        <button type="submit" class="btn btn-big" name=add-Post>Add Post</button>
+                        <button type="submit" class="btn btn-big" name=add-post>Add Post</button>
                     </div>
                 </form>
             </div>
         </div>
         <!--admin content-->
     </div>
-
 
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -109,3 +127,4 @@ if(isset($_POST['submit-button'])) {
 
 </body>
 </html>
+

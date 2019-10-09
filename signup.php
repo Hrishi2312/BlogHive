@@ -1,8 +1,8 @@
 <?php
-include('C:/xampp/htdocs/Blog/App/Database/db.php');
+include('C:/xamppNew/htdocs/BlogHive/App/Database/db.php');
 if(isset($_POST['submit-button'])) {
 	unset($_POST['submit-button'], $_POST['passwordConf']);
-	$_POST['admin'] = 1;
+    $_POST['admin'] = 1;
 	$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	$user_id = create('users', $_POST);
 	$user = selectOne('users', ['id'=>$user_id]);
