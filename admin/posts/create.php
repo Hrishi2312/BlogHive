@@ -75,8 +75,8 @@
         <!--admin content-->
         <div class="admin-content">
             <div class="btn-gp">
-                <a href="create.html" class="btn btn-big">Add Post</a>
-                <a href="index.html" class="btn btn-big">Manage Posts</a>
+                <a href="create.php" class="btn btn-big">Add Post</a>
+                <a href="index.php" class="btn btn-big">Manage Posts</a>
             </div>
 
             <div class="content-create">
