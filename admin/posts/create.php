@@ -1,5 +1,5 @@
-<?php  
-    include('C:/xamppNew/htdocs/BlogHive/App/Database/db.php');
+<?php
+    include('C:/xampp/htdocs/Blog/App/Database/db.php');
     if(isset($_POST['add-post'])){
         unset($_POST['add-post']);
         print_r($_FILES['image']);
@@ -16,13 +16,13 @@
         $title = $_POST['title'];
         $body = $_POST['body'];
         $topic = $_POST['topic'];
-        
+
         $query = "INSERT INTO post (title, body, image,topic)
         VALUES (?,?,?,?)";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ssss", $title, $body,$image,$topic);
         $stmt->execute();
-        
+
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
         } else {
@@ -91,7 +91,7 @@
                         <label>Body</label>
                         <textarea name="body" id="body" name="body"></textarea>
                     </div>
-                    
+
                     <div class="image-upload-wrapper">
                         <label>Preview image</label><br><br>
                         <input type="file" name="image" class = "text-input" >
@@ -106,7 +106,7 @@
                             <option value="Programming">Programming</option>
                         </select>
                     </div>
-                    
+
                     <div>
                         <button type="submit" class="btn btn-big" name=add-post>Add Post</button>
                     </div>
@@ -127,4 +127,3 @@
 
 </body>
 </html>
-
