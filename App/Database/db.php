@@ -1,6 +1,6 @@
 <?php
+  session_start();
   require('connect.php');
-
   function selectAll($table, $conditions = []) {
     global $conn;
     $sql = "SELECT * FROM $table";
@@ -65,7 +65,7 @@
     $types = str_repeat('s',count($values));
     $stmt->bind_param($types,...$values);
     $stmt->execute();
-    error_reporting(E_All);  
+    //error_reporting(E_All);
     return $stmt->insert_id;
   }
 

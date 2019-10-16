@@ -1,11 +1,18 @@
 <?php
-include('C:/xamppNew/htdocs/BlogHive/App/Database/db.php');
+include('App/Database/db.php');
 if(isset($_POST['submit-button'])) {
 	unset($_POST['submit-button'], $_POST['passwordConf']);
     $_POST['admin'] = 1;
 	$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	$user_id = create('users', $_POST);
-	$user = selectOne('users', ['id'=>$user_id]);
+  $user = selectOne('users', ['id'=>$user_id]);
+	$_SESSION['id'] = $user_id;
+	$_SESSION['username'] = $user['username'];
+	$_SESSION['admin'] = $user['admin'];
+	$_SESSION['message'] = 'You are now logged in';
+	$_SESSION['type'] = 'success';
+	header('Location: index.php');
+	exit();
 	//print_r($user);
 	//var_dump($_POST);
 }

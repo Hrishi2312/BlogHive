@@ -1,13 +1,20 @@
 <?php
-include('C:/xampp/htdocs/Blog/App/Database/db.php');
+include('App/Database/db.php');
 if(isset($_POST['submit-button'])) {
 	unset($_POST['submit-button']);
 	$user = selectOne('users', ['email'=>$_POST['email']]);
 	$password = $user['password'];
-	if(password_verify($_POST['password'], $password))
-		echo "<script>alert('You have successfully logged in.');</script>";
+	if(password_verify($_POST['password'], $password)) {
+		$_SESSION['id'] = $user['id'];
+		$_SESSION['username'] = $user['username'];
+		$_SESSION['admin'] = $user['admin'];
+		$_SESSION['message'] = 'You are now logged in';
+		$_SESSION['type'] = 'success';
+		header('Location: index.php');
+		exit();
+	}
 	else
-		echo "Couldn't";
+		echo "<script>alert('Couldn\'t login');</script>";
 }
 ?>
 <!DOCTYPE html>
