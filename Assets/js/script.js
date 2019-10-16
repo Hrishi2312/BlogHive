@@ -43,9 +43,9 @@ $(document).ready(function(){
 });
 
 
-ClassicEditor
+/*ClassicEditor
     .create( document.querySelector( "#body"), {
-        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'ImageConfig'],
         heading: {
             options: [
                 { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -57,3 +57,4 @@ ClassicEditor
     .catch( error => {
         console.log( error );
     } );
+*/

@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="logo">
-            <h1 class="actLogo">Blogger</h1>
+            <h1 class="actLogo"><a href = "../../index.php">Blogger</a></h1>
         </div>
         <i class="fa fa-bars menu-toggle"></i>
         <ul class="nav">

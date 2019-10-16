@@ -43,7 +43,7 @@
 <body>
     <header>
         <div class="logo">
-            <h1 class="actLogo">Blogger</h1>
+            <h1 class="actLogo"><a href = "../../index.php">Blogger</a></h1>
         </div>
         <i class="fa fa-bars menu-toggle"></i>
         <ul class="nav">
@@ -120,7 +120,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!--ck editor-->
-    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+    <script src = "../../ckeditor/ckeditor.js"></script>
+    <script>
+    CKEDITOR.replace('body');
+    </script>
+    <!--script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script-->
 
     <!--custom js-->
     <script src="../../Assets/js/script.js"></script>
