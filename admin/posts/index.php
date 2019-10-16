@@ -1,3 +1,4 @@
+<?php include('../../App/Database/db.php'); ?>
 <!DOCTYPE>
 <html>
 <head>
@@ -18,12 +19,12 @@
         <ul class="nav">
             <li><a href="#">
                 <i class="fa fa-user"></i>
-               Satej Kokate
+               <?php echo $_SESSION['username']; ?>
                 <i class="fa fa-chevron-down"></i>
                </a>
                 <ul>
                     <li><a href="#">Dashboard</a></li>
-                    <li><a href="#" class="out">Log out</a></li>
+                    <li><a href="../../logout.php" class="out">Log out</a></li>
                 </ul>
             </li>
         </ul>

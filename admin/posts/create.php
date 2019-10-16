@@ -1,5 +1,5 @@
 <?php
-    include('C:/xampp/htdocs/Blog/App/Database/db.php');
+    include('../../App/Database/db.php');
     if(isset($_POST['add-post'])){
         unset($_POST['add-post']);
         print_r($_FILES['image']);
@@ -49,11 +49,11 @@
         <ul class="nav">
             <li><a href="#">
                 <i class="fa fa-user"></i>
-               Satej Kokate
+               <?php echo $_SESSION['username']; ?>
                 <i class="fa fa-chevron-down"></i>
                </a>
                 <ul>
-                    <li><a href="#" class="out">Log out</a></li>
+                    <li><a href="../../logout.php" class="out">Log out</a></li>
                 </ul>
             </li>
         </ul>

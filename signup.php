@@ -11,7 +11,10 @@ if(isset($_POST['submit-button'])) {
 	$_SESSION['admin'] = $user['admin'];
 	$_SESSION['message'] = 'You are now logged in';
 	$_SESSION['type'] = 'success';
-	header('Location: index.php');
+	if($_SESSION['admin'])
+		header('Location: admin/posts/index.php');
+	else
+		header('Location: index.php');
 	exit();
 	//print_r($user);
 	//var_dump($_POST);

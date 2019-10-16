@@ -33,7 +33,7 @@ include('App/Database/db.php');
                     <?php if($_SESSION['admin']): ?>
                     <li><a href="admin/posts/">Dashboard</a></li>
                     <?php endif; ?>
-                    <li><a href="#" class="out">Log out</a></li>
+                    <li><a href="logout.php" class="out">Log out</a></li>
                 </ul>
             </li>
             <?php
