@@ -1,6 +1,9 @@
 <?php
-include('App/Database/db.php');
- ?>
+    include('App/Database/db.php');
+    $rs_result = selectAll('post');
+    
+    
+?>
 <!DOCTYPE>
 <html>
 <head>
@@ -129,8 +132,17 @@ include('App/Database/db.php');
     <div class="content clearfix">
         <div class="recent-post-section">
             <h1 class="recent-post-title">Recent Posts</h1>
+            <?php  
+                $i = 0;
+                        
+                while ($i<sizeof($rs_result)) {
+                        
+                $row = $rs_result[$i];    
+            ?>  
             <div class="post">
-                <img src="Assets/images/post2.jpeg" alt="" class="img-style">
+                <?php
+                    echo "<img src='Assets/images/postImage/".$row['image']."'"." class='img-style'>";
+                ?>
                 <div class="post-preview">
                     <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
                     <i class="fa fa-user">Ranu Singh</i>
@@ -140,50 +152,10 @@ include('App/Database/db.php');
                     <a href="single.php" class="btn read-more">Read More</a>
                 </div>
             </div>
-            <div class="post">
-                <img src="Assets/images/post2.jpeg" alt="" class="img-style">
-                <div class="post-preview">
-                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
-                    <i class="fa fa-user">Ranu Singh</i>
-                    &nbsp;
-                    <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
-                    <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.php" class="btn read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post">
-                <img src="Assets/images/post2.jpeg" alt="" class="img-style">
-                <div class="post-preview">
-                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
-                    <i class="fa fa-user">Ranu Singh</i>
-                    &nbsp;
-                    <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
-                    <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.php" class="btn read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post">
-                <img src="Assets/images/post2.jpeg" alt="" class="img-style">
-                <div class="post-preview">
-                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
-                    <i class="fa fa-user">Ranu Singh</i>
-                    &nbsp;
-                    <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
-                    <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.php" class="btn read-more">Read More</a>
-                </div>
-            </div>
-            <div class="post">
-                <img src="Assets/images/post2.jpeg" alt="" class="img-style">
-                <div class="post-preview">
-                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
-                    <i class="fa fa-user">Ranu Singh</i>
-                    &nbsp;
-                    <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
-                    <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.php" class="btn read-more">Read More</a>
-                </div>
-            </div>
+            <?php
+                $i++;
+            };  
+            ?>
         </div>
 
         <!--Side bar-->

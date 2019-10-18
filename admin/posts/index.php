@@ -1,6 +1,6 @@
 <?php include('../../App/Database/db.php'); 
     $rs_result = selectAll('post',['created_by'=>$_SESSION['username']]);
-    print_r($rs_result[0]);
+    //print_r($rs_result[0]);
     
 ?>
 <!DOCTYPE>
