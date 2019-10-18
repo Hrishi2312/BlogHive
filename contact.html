@@ -1,0 +1,101 @@
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Contact</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "montserrat",sans-serif;
+}
+.contact{
+	background: url(Assets/images/contact-us-background.gif) no-repeat center;
+	background-size: cover;
+	padding: 30px 0;
+}
+.contact-section h1{
+  text-align: left;
+  color: white;
+  margin-left: 200px;
+  margin-top: 5px;
+}
+.border{
+	width:120px;
+	height: 5px;
+	background: yellow;
+	margin-left: 224px;
+	margin-top: 5px;
+}
+.contact-form{
+	max-width: 400px;
+	margin-left: 90px;
+	padding: 0 4px;
+	overflow: hidden;
+}
+.contact-form-text{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 16px 0;
+	border: 0;
+	border-radius: 20px;
+	background: #FEDDD3;
+	padding: 15px 30px;
+	outline: none;
+	color: black;
+	transition: 0.5s;
+}
+.contact-form-text-focus{
+	box-shadow: 0 0 10px 4px green;
+}
+textarea.contact-form-text{
+	resize: none;
+	height: 120px;
+	border-radius: 20px;
+}
+.button1{
+	float: left;
+	border: 0;
+	background: #000AE0;
+	color: #fff;
+	padding: 12px 50px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.button1:hover{
+	background: #2980b9;
+}
+.button2{
+	float: right;
+	text-align: center;
+	border: 0;
+	background: #000AE0;
+	color: #fff;
+	padding: 12px 1px;
+	border-radius: 20px;
+	cursor: pointer;
+
+}
+.button2:hover{
+	background: #2980b9;
+}
+
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head><body class="contact">
+	<div class="contact-section">
+	<h1>Contact Us</h1></div>
+	<br>
+	<div class="border"></div>
+	<form class="contact-form" action="" method="post">
+		<input type = "text" placeholder = "First Name" name="fname" class="contact-form-text">
+        <input type = "text" placeholder = "Last Name" id = "lastName" class="contact-form-text"><br>
+        <input type = "email" placeholder = "Email" name="email" class="contact-form-text"><br>
+        <input type = "No" placeholder = "Mobile No." name="mob" class="contact-form-text"><br>
+        <textarea class="contact-form-text" placeholder="your message"></textarea>
+        <input type = "submit" value = "Send" class= "button1">
+        <input type = "exit" value = "Exit" class= "button2">
+	</form>
+</body></html>

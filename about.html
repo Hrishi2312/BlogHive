@@ -1,0 +1,107 @@
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>About Us</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.team-section{
+	background:#34495e;
+	overflow: hidden;
+	text-align: center;
+	padding: 60px;
+}
+.team-section h1{
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 60px;
+  font-size: 40px;
+}
+.border{
+	display: block;
+	width: 160px;
+	height: 3px;
+	background: yellow;
+	margin: auto;
+	margin-bottom: 45px;
+}
+.ps{
+	margin-bottom: 40px;
+}
+.ps a{
+	display: inline-block;
+	margin: 0 20px;
+	width: 110px;
+	height: 110px;
+	overflow: hidden;
+	border-radius: 50%
+}
+.ps a img
+{
+	width: 100%;
+	filter: grayscale(100%);
+	transition: 0.4s all;
+}
+.ps a:hover > img{
+	filter: none;
+}
+.section{
+	width: 600px;
+	margin: auto;
+	font-size: 20px;
+	color: white;
+	text-align: center justify;
+	height: 0;
+	overflow: hidden;
+}
+.section:target{
+	height: auto;
+}
+.name{
+	display: block;
+	margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+</style>
+</head><body>
+	<div class="team-section">
+	<h1>About Us</h1>
+	<br>
+	<span class="border"></span>
+	<div class="ps">
+		<a href="#p1"><img src="" alt=""></a>
+		<a href="#p2"><img src="" alt=""></a>
+		<a href="#p3"><img src="" alt=""></a>
+		<a href="#p4"><img src="" alt=""></a>
+	
+	<div class="section" id="p1">
+		<span class="name">t1</span>
+		<span class="border"></span>
+		<p>abc</p>
+	</div>
+	<div class="section" id="p2">
+		<span class="name">t2</span>
+		<span class="border"></span>
+		<p>abcd</p>
+	</div>
+	<div class="section" id="p3">
+		<span class="name">t3</span>
+		<span class="border"></span>
+		<p>abcdef</p>
+	</div>
+	<div class="section" id="p4">
+		<span class="name">t4</span>
+		<span class="border"></span>
+		<p>abcdefgh</p>
+	</div>
+	</div>
+	</div>
+</body></html>

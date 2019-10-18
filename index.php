@@ -18,9 +18,9 @@ include('App/Database/db.php');
         </div>
         <i class="fa fa-bars menu-toggle"></i>
         <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <?php
             if(isset($_SESSION['id'])):
             ?>
