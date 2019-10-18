@@ -5,7 +5,7 @@ if(isset($_POST['submit-button'])) {
     $_POST['admin'] = 1;
 	$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	$user_id = create('users', $_POST);
-  $user = selectOne('users', ['id'=>$user_id]);
+    $user = selectOne('users', ['id'=>$user_id]);
 	$_SESSION['id'] = $user_id;
 	$_SESSION['username'] = $user['username'];
 	$_SESSION['admin'] = $user['admin'];

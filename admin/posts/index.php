@@ -1,4 +1,8 @@
-<?php include('../../App/Database/db.php'); ?>
+<?php include('../../App/Database/db.php'); 
+    $rs_result = selectAll('post',['created_by'=>$_SESSION['username']]);
+    print_r($rs_result[0]);
+    
+?>
 <!DOCTYPE>
 <html>
 <head>
@@ -36,8 +40,7 @@
         <!--Left sidebar-->
         <div class="left-sidebar">
             <ul>
-                <li><a href="index.html">Manage Posts</a></li>
-                <li><a href="../users/index.html">Manage Users</a></li>
+                <li><a href="index.php">Manage Posts</a></li>
                 <li><a href="../topics/index.html">Manage Topics</a></li>
             </ul>
         </div>
@@ -60,22 +63,24 @@
                     <th colspan="3">Actions</th>
                 </thead>
                 <tbody>
+                    <?php  
+                        $i = 0;
+                        
+                        while ($i<sizeof($rs_result)) {
+                        
+                            $row = $rs_result[$i];    
+                    ?>  
                     <tr>
-                    <td>1</td>
-                    <td>this is the first post</td>
-                    <td>Pravin Jagtap</td>
+                    <td><?php echo ($i+1)?></td>
+                    <td><?php echo $row['title'] ?></td>
+                    <td><?php echo $row['created_by'] ?></td>
                     <td><a href="#" class = "edit">edit</a></td>
                     <td><a href="#" class = "delete">delete</a></td>
-                    <td><a href="#" class = "publish">publish</a></td>
                     </tr>
-                    <tr>
-                    <td>2</td>
-                    <td>this is the second post</td>
-                    <td>Suyog Shette</td>
-                    <td><a href="#" class = "edit">edit</a></td>
-                    <td><a href="#" class = "delete">delete</a></td>
-                    <td><a href="#" class = "publish">publish</a></td>
-                    </tr>
+                    <?php
+                        $i++;
+                    };  
+                    ?>
                 </tbody>
             </table>
         </div>

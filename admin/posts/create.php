@@ -2,8 +2,7 @@
     include('../../App/Database/db.php');
     if(isset($_POST['add-post'])){
         unset($_POST['add-post']);
-        print_r($_FILES['image']);
-        print_r($_POST);
+        $creator=$_SESSION['username'];
         $target_dir = "../../Assets/images/postImage/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         $host = 'localhost';
@@ -17,10 +16,10 @@
         $body = $_POST['body'];
         $topic = $_POST['topic'];
 
-        $query = "INSERT INTO post (title, body, image,topic)
-        VALUES (?,?,?,?)";
+        $query = "INSERT INTO post (title,created_by, body, image,topic)
+        VALUES (?,?,?,?,?)";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssss", $title, $body,$image,$topic);
+        $stmt->bind_param("sssss", $title, $creator,$body,$image,$topic);
         $stmt->execute();
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
@@ -65,8 +64,7 @@
         <!--Left sidebar-->
         <div class="left-sidebar">
             <ul>
-                <li><a href="index.html">Manage Posts</a></li>
-                <li><a href="../users/index.html">Manage Users</a></li>
+                <li><a href="index.php">Manage Posts</a></li>
                 <li><a href="../topics/index.html">Manage Topics</a></li>
             </ul>
         </div>
