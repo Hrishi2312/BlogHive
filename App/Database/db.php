@@ -50,7 +50,7 @@
 
   function create($table,$data) {
     global $conn;
-    $sql = "INSERT INTO users SET ";
+    $sql = "INSERT INTO $table SET ";
     $i = 0;
     foreach ($data as $key => $value) {
       if($i === 0){

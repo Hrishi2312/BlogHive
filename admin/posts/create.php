@@ -27,6 +27,7 @@
         } else {
             echo "Sorry, there was an error uploading your file.";}
         }
+        $rs_result = selectAll('topic');
 ?>
 <!DOCTYPE>
 <html>
@@ -95,15 +96,24 @@
                         <input type="file" name="image" class = "text-input" >
                     </div>
 
+                    <?php
+                                    $i = 0;
+
+                                    while ($i<sizeof($rs_result)) {
+
+                                    $row = $rs_result[$i];
+                                ?>
                     <div>
-                        <label>Topic</label>
-                        <select name="topic" class = "text-input">
-                            <option value="Motivational">Life Lesson</option>
-                            <option value="Poem">Poem</option>
-                            <option value="Learning">Learning</option>
-                            <option value="Programming">Programming</option>
-                        </select>
+                       <label>Topic</label>
+                           <select name="topic" class = "text-input">
+                                <option value="<?php echo $row['name']?>"><?php echo $row['name']?></option>
+
+                                </select>
                     </div>
+                    <?php
+                                    $i++;
+                                };
+                                ?>
 
                     <div>
                         <button type="submit" class="btn btn-big" name=add-post>Add Post</button>

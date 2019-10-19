@@ -1,3 +1,7 @@
+<?php
+    include('App/Database/db.php');
+    $rs_result = selectAll('post');
+?>
 <!DOCTYPE>
 <html>
 <head>

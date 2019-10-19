@@ -2,10 +2,11 @@
     include('../../App/Database/db.php');
     if(isset($_POST['add-topic'])){
         unset($_POST['add-topic']);
-    
+        $_POST['name'] = $_POST['name'];
         $_POST['created_by'] =  $_SESSION['username'];
-        var_dump($_POST);
-        $post_id = create('topics',$_POST);
+        $post_id = create('topic',$_POST);
+        echo "<script>alert('Topic Added.');</script>";
+      }
 ?>
 <!DOCTYPE>
 <html>
@@ -43,8 +44,8 @@
         <!--Left sidebar-->
         <div class="left-sidebar">
             <ul>
-                <li><a href="index.php">Manage Posts</a></li>
-                <li><a href="../topics/index.html">Manage Topics</a></li>
+                <li><a href="../posts/index.php">Manage Posts</a></li>
+                <li><a href="#">Manage Topics</a></li>
             </ul>
         </div>
         <!--Left sidebar-->
@@ -52,8 +53,8 @@
         <!--admin content-->
         <div class="admin-content">
             <div class="btn-gp">
-                <a href="create.php" class="btn btn-big">Add Post</a>
-                <a href="index.php" class="btn btn-big">Manage Posts</a>
+                <a href="create.php" class="btn btn-big">Add Topic</a>
+                <a href="index.php" class="btn btn-big">Manage Topics</a>
             </div>
 
             <div class="content-create">
@@ -61,7 +62,7 @@
                 <form action="create.php" method="post" class="form-style" enctype="multipart/form-data">
                     <div>
                         <label>Name of the Topic</label>
-                        <input type="text" name="topic"  class="text-input">
+                        <input type="text" name="name"  class="text-input">
                     </div>
 
                     <div>

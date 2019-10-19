@@ -1,7 +1,7 @@
-<?php include('../../App/Database/db.php'); 
+<?php include('../../App/Database/db.php');
     $rs_result = selectAll('post',['created_by'=>$_SESSION['username']]);
     //print_r($rs_result[0]);
-    
+
 ?>
 <!DOCTYPE>
 <html>
@@ -41,7 +41,7 @@
         <div class="left-sidebar">
             <ul>
                 <li><a href="index.php">Manage Posts</a></li>
-                <li><a href="../topics/index.html">Manage Topics</a></li>
+                <li><a href="../topics/create.php">Manage Topics</a></li>
             </ul>
         </div>
         <!--Left sidebar-->
@@ -63,13 +63,13 @@
                     <th colspan="3">Actions</th>
                 </thead>
                 <tbody>
-                    <?php  
+                    <?php
                         $i = 0;
-                        
+
                         while ($i<sizeof($rs_result)) {
-                        
-                            $row = $rs_result[$i];    
-                    ?>  
+
+                            $row = $rs_result[$i];
+                    ?>
                     <tr>
                     <td><?php echo ($i+1)?></td>
                     <td><?php echo $row['title'] ?></td>
@@ -79,7 +79,7 @@
                     </tr>
                     <?php
                         $i++;
-                    };  
+                    };
                     ?>
                 </tbody>
             </table>

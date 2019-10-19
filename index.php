@@ -1,8 +1,8 @@
 <?php
     include('App/Database/db.php');
     $rs_result = selectAll('post');
-    
-    
+
+
 ?>
 <!DOCTYPE>
 <html>
@@ -132,29 +132,29 @@
     <div class="content clearfix">
         <div class="recent-post-section">
             <h1 class="recent-post-title">Recent Posts</h1>
-            <?php  
+            <?php
                 $i = 0;
-                        
+
                 while ($i<sizeof($rs_result)) {
-                        
-                $row = $rs_result[$i];    
-            ?>  
+
+                $row = $rs_result[$i];
+            ?>
             <div class="post">
                 <?php
                     echo "<img src='Assets/images/postImage/".$row['image']."'"." class='img-style'>";
                 ?>
                 <div class="post-preview">
-                    <h2><a href="single.php">The strongest and sweetest song yet ever to be sung</a></h2>
-                    <i class="fa fa-user">Ranu Singh</i>
+                    <h2><a href="single.php"><?php echo $row['title']; ?></a></h2>
+                    <i class="fa fa-user"><?php echo $row['created_by']; ?></i>
                     &nbsp;
-                    <i class="fa fa-calendar" aria-hidden="true">19 March,2019</i>
+                    <i class="fa fa-calendar" aria-hidden="true"><?php echo $row['created_at']; ?></i>
                     <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.php" class="btn read-more">Read More</a>
+                    <a href="single.php" class="btn read-more" method = 'post'>Read More</a>
                 </div>
             </div>
             <?php
                 $i++;
-            };  
+            };
             ?>
         </div>
 
@@ -206,12 +206,9 @@
                 <h2>Quick Links</h2>
                 <br>
                 <ul>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Blog#History" target = "_blank">History of Blogs</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Blog#Types" target = "_blank">Types of Blogs</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Blog#Popularity" target = "_blank">Popularity of Blogs</a></li>
                 </ul>
             </div>
             <div class="footer-section contact-form">
