@@ -1,8 +1,23 @@
 <?php
-    include('App/Database/db.php');
-    $rs_result = selectAll('post');
-
-
+  include('App/Database/db.php');
+  $rs_result = selectWithExtra('post', [], 'ORDER BY created_at DESC');
+  function trim_text($input, $length, $ellipses = true, $strip_tag = true,$strip_style = true) {
+    if ($strip_tag)
+      $input = strip_tags($input);
+    if ($strip_style)
+      $input = preg_replace('/(<[^>]+) style=".*?"/i', '$1',$input);
+    if($length=='full')
+      $trimmed_text=$input;
+    else {
+      if (strlen($input) <= $length)
+        return $input;
+      $last_space = strrpos(substr($input, 0, $length), ' ');
+      $trimmed_text = substr($input, 0, $last_space);
+      if ($ellipses)
+        $trimmed_text .= '...';
+    }
+    return $trimmed_text;
+  }
 ?>
 <!DOCTYPE>
 <html>
@@ -144,12 +159,14 @@
                     echo "<img src='Assets/images/postImage/".$row['image']."'"." class='img-style'>";
                 ?>
                 <div class="post-preview">
-                    <h2><a href="single.php"><?php echo $row['title']; ?></a></h2>
+                    <h2><a href="single.php?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a></h2>
                     <i class="fa fa-user"><?php echo $row['created_by']; ?></i>
                     &nbsp;
-                    <i class="fa fa-calendar" aria-hidden="true"><?php echo $row['created_at']; ?></i>
-                    <p class="prev-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus dolor corporis impedit doloribus nihil, molestias.</p>
-                    <a href="single.php" class="btn read-more" method = 'post'>Read More</a>
+                    <i class="fa fa-calendar" aria-hidden="true"><?php echo date('d M, Y', strtotime($row['created_at'])); ?></i>
+                    &nbsp;
+                    <i class="fa fa-clock"><?php echo date('h:i:s A', strtotime($row['created_at'])); ?></i>
+                    <p class="prev-text"><?php echo trim_text($row['body'], 200); ?></p>
+                    <a href="single.php?id=<?php echo $row['id']; ?>" class="btn read-more">Read More</a>
                 </div>
             </div>
             <?php

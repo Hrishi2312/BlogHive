@@ -1,6 +1,32 @@
 <?php
   session_start();
   require('connect.php');
+  function selectWithExtra($table, $conditions = [], $extra) {
+    global $conn;
+    $sql = "SELECT * FROM $table ";
+    $sql .= $extra;
+    if(empty($conditions)) {
+      $stmt = $conn->prepare($sql);
+      $stmt->execute();
+      return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    } else {
+      $i = 0;
+      foreach ($conditions as $key => $value) {
+        if($i === 0){
+          $sql .= " WHERE $key = ?";
+        } else {
+          $sql .= " AND $key = ?";
+        }
+        $i++;
+      }
+      $stmt = $conn->prepare($sql);
+      $values = array_values($conditions);
+      $types = str_repeat('s',count($values));
+      $stmt->bind_param($types,...$values);
+      $stmt->execute();
+      return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+  }
   function selectAll($table, $conditions = []) {
     global $conn;
     $sql = "SELECT * FROM $table";

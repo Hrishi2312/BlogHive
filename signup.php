@@ -2,7 +2,6 @@
 include('App/Database/db.php');
 if(isset($_POST['submit-button'])) {
 	unset($_POST['submit-button'], $_POST['passwordConf']);
-    $_POST['admin'] = 1;
 	$_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	$user_id = create('users', $_POST);
     $user = selectOne('users', ['id'=>$user_id]);
@@ -37,7 +36,11 @@ if(isset($_POST['submit-button'])) {
 			<form name="signup_form" method="post" action="signup.php" >
 				<h2 style="color: #664ec5; display: inline;">Register<span style="color: #717171"> your account</span></h2>
 				<input type="text" placeholder="Username" name="username" id="user" >
-				<input type="text" placeholder="Email" name="email">
+				<input type="text" placeholder="Email" name="email"><br>
+				<div>Type of User:<br>
+					<input type = "radio" name = "admin" value = "0">Visitor</input>
+					<input type = "radio" name = "admin" value = "1">Content Creator</input>
+				</div>
 				<input type="password" placeholder="Password" name="password">
 				<input type="password" placeholder="Confirm Password" name="passwordConf">
 				<button type="submit" name="submit-button">Sign Up</button>

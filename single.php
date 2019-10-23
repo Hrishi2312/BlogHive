@@ -1,6 +1,6 @@
 <?php
     include('App/Database/db.php');
-    $rs_result = selectAll('post');
+    $rs_result = selectOne('post', ['id'=>$_GET['id']]);
 ?>
 <!DOCTYPE>
 <html>
@@ -13,29 +13,40 @@
 
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1 class="actLogo">Blogger</h1>
-        </div>
-        <i class="fa fa-bars menu-toggle"></i>
-        <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">services</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sigup</a></li>
-            <li><a href="#">
-                <i class="fa fa-user"></i>
-               Satej Kokate
-                <i class="fa fa-chevron-down"></i>
-               </a>
-                <ul>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#" class="out">Log out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </header>
+  <header>
+      <div class="logo">
+          <h1 class="actLogo">Blogger</h1>
+      </div>
+      <i class="fa fa-bars menu-toggle"></i>
+      <ul class="nav">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about_us/index.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <?php
+          if(isset($_SESSION['id'])):
+          ?>
+          <li><a href="#">
+              <i class="fa fa-user"></i>
+             <?php echo $_SESSION['username']; ?>
+              <i class="fa fa-chevron-down"></i>
+             </a>
+              <ul>
+                  <?php if($_SESSION['admin']): ?>
+                  <li><a href="admin/posts/">Dashboard</a></li>
+                  <?php endif; ?>
+                  <li><a href="logout.php" class="out">Log out</a></li>
+              </ul>
+          </li>
+          <?php
+      else:
+          ?>
+          <li><a href="login.php">Login</a></li>
+          <li><a href="signup.php">Sign Up</a></li>
+          <?php
+        endif;
+           ?>
+      </ul>
+  </header>
 
     <!--page wrapper-->
 
@@ -45,16 +56,11 @@
 
         <div class="content clearfix">
             <div class="recent-post-section single">
-                <h1 class="post-title">This is the title of the post</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptatum, obcaecati officiis consequuntur aspernatur voluptatibus?</p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quas animi praesentium, eos recusandae illum sed doloremque quisquam odio nesciunt reiciendis! Fuga eveniet inventore sint dolor voluptatibus quo omnis. Architecto fuga, asperiores rem ut exercitationem, voluptatum aperiam ipsum dolores beatae ducimus molestias, nostrum magni obcaecati nam cum fugiat! Iste, dicta.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem ipsum culpa fugiat, molestias ad natus numquam necessitatibus officiis cupiditate rerum odio alias iste! Nobis vero ratione facilis deleniti deserunt quis! Distinctio facere culpa aliquam id, deserunt repellat harum vitae, aliquid quibusdam rem quam optio natus molestias? Rerum ut odit doloremque accusamus soluta et eius earum iusto voluptas atque expedita ex id eveniet doloribus incidunt laboriosam recusandae, rem odio voluptatum sequi vero quibusdam vitae sit, inventore impedit. Eaque pariatur fugit, aperiam eligendi laboriosam earum nulla numquam eveniet cumque.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, fuga culpa enim quis earum molestiae dolorem quae. Nihil, quod iure. Reiciendis debitis distinctio quam in.</p>
+                <h1 class="post-title"><?php echo $rs_result['title'] ?></h1>
+                <?php
+                echo "<center><img src='Assets/images/postImage/".$rs_result['image']."'"." class='img-style'></center>";
+                echo $rs_result['body'];
+                ?>
             </div>
 
             <!--Side Bar-->
@@ -123,12 +129,9 @@
                 <h2>Quick Links</h2>
                 <br>
                 <ul>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
-                    <li><a href="#">Something</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Blog#History" target = "_blank">History of Blogs</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Blog#Types" target = "_blank">Types of Blogs</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Blog#Popularity" target = "_blank">Popularity of Blogs</a></li>
                 </ul>
             </div>
             <div class="footer-section contact-form">
