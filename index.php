@@ -2,6 +2,7 @@
   include('App/Database/db.php');
   $rs_result = selectWithExtra('post', [], 'ORDER BY created_at DESC');
   $topics = selectAll('topic');
+  //print_r($topics);
   function trim_text($input, $length, $ellipses = true, $strip_tag = true,$strip_style = true) {
     if ($strip_tag)
       $input = strip_tags($input);
@@ -188,12 +189,15 @@
                 <h2 class="topic-title">Categories</h2>
                 <ul>
                   <?php
-                  $i = 0;
-                  while($i < sizeof($topics)) {
-                    $topic = $topics[$i];
+                  $j = 0;
+                  while($j < sizeof($topics)) {
+                    $topic = $topics[$j]
                   ?>
                     <li><a href="#"><?php echo $topic['name']; ?></a></li>
-                  <?php } ?>
+                  <?php
+                    $j++;
+                  }
+                  ?>
                 </ul>
             </div>
         </div>
