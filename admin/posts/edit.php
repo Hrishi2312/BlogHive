@@ -1,7 +1,10 @@
 <?php
     include('../../App/Database/db.php');
-    if(isset($_POST['add-post'])){
-        unset($_POST['add-post']);
+    $postData = selectOne('post', ['id'=>$_GET['id']]);
+    $topic = selectOne('topic', ['name'=>$postData['topic']]);
+    //print_r($postData);
+    if(isset($_POST['edit-post'])){
+        unset($_POST['edit-post']);
         $creator=$_SESSION['username'];
         $target_dir = "../../Assets/images/postImage/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -10,18 +13,19 @@
         $pass = '';
         $dbName = 'blog';
 
-        $conn = new MySqli($host, $user, $pass, $dbName);
+        $conn = new mysqli($host, $user, $pass, $dbName);
         $image = $_FILES['image']['name'];
         $title = $_POST['title'];
         $body = $_POST['body'];
         $topic = $_POST['topic'];
 
-        $query = "INSERT INTO post (title,created_by, body, image,topic)
-        VALUES (?,?,?,?,?)";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("sssss", $title, $creator,$body,$image,$topic);
-        $stmt->execute();
-
+        $sql = "UPDATE post SET title = '$title', body = '$body', image = '$image', topic = '$topic' WHERE id = ".$_GET['id'];
+        try {
+          $conn->query($sql);
+        } catch(Exception $e) {
+          echo $e->getMessage();
+        }
+          print_r($_FILES["image"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
             header("Location: index.php");
@@ -80,16 +84,16 @@
             </div>
 
             <div class="content-create">
-            <h2 class="page-title">Add Posts</h2>
-                <form action="create.php" method="post" class="form-style" enctype="multipart/form-data">
+            <h2 class="page-title">Update Posts</h2>
+                <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post" class="form-style" enctype="multipart/form-data">
                     <div>
                         <label>Title</label>
-                        <input type="text" name="title"  class="text-input">
+                        <input type="text" name="title"  class="text-input" value="<?php echo $postData['title']; ?>">
                     </div>
 
                     <div>
                         <label>Body</label>
-                        <textarea name="body" id="body" name="body"></textarea>
+                        <textarea name="body" id="body" name="body"><?php echo $postData['body']; ?></textarea>
                     </div>
 
                     <div class="image-upload-wrapper">
@@ -103,22 +107,23 @@
                            <select name="topic" class = "text-input">
                              <?php
                                              $i = 0;
-
                                              while ($i<sizeof($rs_result)) {
 
                                              $row = $rs_result[$i];
+                                             if($topic['name'] == $row['name']) {
                                          ?>
-                                <option value="<?php echo $row['name']?>"><?php echo $row['name']?></option>
-
-
-                    <?php
+                                <option selected><?php echo $row['name']?></option>
+                              <?php } else { ?>
+                              <option><?php echo $row['name']?></option>
+                                <?php
+                                    }
                                     $i++;
                                 };
                                 ?>
                               </select>
                   </div>
                     <div>
-                        <button type="submit" class="btn btn-big" name=add-post>Add Post</button>
+                        <button type="submit" class="btn btn-big" name=edit-post>Update Post</button>
                     </div>
                 </form>
             </div>

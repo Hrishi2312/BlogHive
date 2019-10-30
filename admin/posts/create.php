@@ -21,10 +21,10 @@
         $stmt = $conn->prepare($query);
         $stmt->bind_param("sssss", $title, $creator,$body,$image,$topic);
         $stmt->execute();
-
+        print_r($_FILES["image"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
-            header("Location: index.php");
+            //header("Location: index.php");
         } else {
             echo "Sorry, there was an error uploading your file.";}
         }
