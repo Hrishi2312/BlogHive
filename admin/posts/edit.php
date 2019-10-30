@@ -18,14 +18,15 @@
         $title = $_POST['title'];
         $body = $_POST['body'];
         $topic = $_POST['topic'];
-
-        $sql = "UPDATE post SET title = '$title', body = '$body', image = '$image', topic = '$topic' WHERE id = ".$_GET['id'];
+        if($image)
+          $sql = "UPDATE post SET title = '$title', body = '$body', image = '$image', topic = '$topic' WHERE id = ".$_GET['id'];
+        else
+          $sql = "UPDATE post SET title = '$title', body = '$body', topic = '$topic' WHERE id = ".$_GET['id'];
         try {
           $conn->query($sql);
         } catch(Exception $e) {
           echo $e->getMessage();
         }
-          print_r($_FILES["image"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
             header("Location: index.php");
@@ -95,10 +96,13 @@
                         <label>Body</label>
                         <textarea name="body" id="body" name="body"><?php echo $postData['body']; ?></textarea>
                     </div>
-
+                    <div>
+                      <p>Currently uploaded Image file</p>
+                      <img src = "../../Assets/images/postImage/<?php echo $postData['image'] ?>">
+                    </div>
                     <div class="image-upload-wrapper">
                         <label>Preview image</label><br><br>
-                        <input type="file" name="image" class = "text-input" >
+                        <input type="file" name="image" class = "text-input">
                     </div>
 
 
