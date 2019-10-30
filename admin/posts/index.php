@@ -74,8 +74,8 @@
                     <td><?php echo ($i+1)?></td>
                     <td><?php echo $row['title'] ?></td>
                     <td><?php echo $row['created_by'] ?></td>
-                    <td><a href="#" class = "edit">edit</a></td>
-                    <td><a href="#" class = "delete">delete</a></td>
+                    <td><a href="edit.php?id=<?php echo $row['id']; ?>" class = "edit">edit</a></td>
+                    <td><a href="delete.php?id=<?php echo $row['id']; ?>" class = "delete">delete</a></td>
                     </tr>
                     <?php
                         $i++;

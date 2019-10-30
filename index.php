@@ -1,6 +1,7 @@
 <?php
   include('App/Database/db.php');
   $rs_result = selectWithExtra('post', [], 'ORDER BY created_at DESC');
+  $topics = selectAll('topic');
   function trim_text($input, $length, $ellipses = true, $strip_tag = true,$strip_style = true) {
     if ($strip_tag)
       $input = strip_tags($input);
@@ -184,15 +185,15 @@
                 </form>
             </div>
             <div class="section topic">
-                <h2 class="topic-title">Catagories</h2>
+                <h2 class="topic-title">Categories</h2>
                 <ul>
-                    <li><a href="#">Poem</a></li>
-                    <li><a href="#">Story</a></li>
-                    <li><a href="#">Motivational</a></li>
-                    <li><a href="#">Gaming</a></li>
-                    <li><a href="#">Biography</a></li>
-                    <li><a href="#">Learing</a></li>
-                    <li><a href="#">Programming</a></li>
+                  <?php
+                  $i = 0;
+                  while($i < sizeof($topics)) {
+                    $topic = $topics[$i];
+                  ?>
+                    <li><a href="#"><?php echo $topic['name']; ?></a></li>
+                  <?php } ?>
                 </ul>
             </div>
         </div>

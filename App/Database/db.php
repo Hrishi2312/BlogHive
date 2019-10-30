@@ -94,7 +94,20 @@
     //error_reporting(E_All);
     return $stmt->insert_id;
   }
-
+  function delete($table, $data) {
+    global $conn;
+    $sql = "DELETE FROM $table ";
+    $i = 0;
+    foreach ($data as $key => $value) {
+      if($i === 0){
+        $sql .= " WHERE $key = $value";
+      } else {
+        $sql .= " AND $key = $value";
+      }
+      $i++;
+    }
+    mysqli_query($conn, $sql);
+  }
   $data = ['admin' => 1, 'username' => 'sattu123', 'email' => 'satejkokate123@gmail.com', 'password' => "sattu@1234"];
   //print_r(create('users', $data));
  ?>
