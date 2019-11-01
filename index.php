@@ -140,6 +140,7 @@
                     </div>
                 </div>
         </div>
+        </div>
         <!--Page Slider-->
 
     <!--Content-->
@@ -200,7 +201,7 @@
     </div>
 </div>
     <!--Content-->
-    </div>
+    
 
     <!--footer-->
     <div class="footer">
@@ -251,6 +252,5 @@
     <!--slick carousel-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <!--footer-->
 </body>
 </html>

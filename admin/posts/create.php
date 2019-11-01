@@ -66,7 +66,7 @@
         <div class="left-sidebar">
             <ul>
                 <li><a href="index.php">Manage Posts</a></li>
-                <li><a href="../topics/index.html">Manage Topics</a></li>
+                <li><a href="../topics/create.php">Manage Topics</a></li>
             </ul>
         </div>
         <!--Left sidebar-->

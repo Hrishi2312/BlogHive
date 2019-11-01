@@ -1,0 +1,147 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box
+}
+
+.clearfix:after {
+    content: '.';
+    visibility: hidden;
+    display: block;
+    height: 0px;
+    clear: both;
+}
+
+header {
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('../images/homepage-img.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
+span {
+    color: #dec86c;
+}
+
+.row {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.logo {
+    float: left;
+    width: auto;
+    margin-top: 20px;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+}
+
+.main-nav {
+    float: right;
+    margin-top: 35px;
+    margin-right: 50px
+}
+
+.main-nav li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 40px;
+}
+
+.main-nav li a {
+    color: #c3d8c1;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.main-nav li a:hover {
+    border-bottom: 1px solid #fff;
+    color: white;
+}
+
+.image-nav {
+    width: 1180px;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+
+.image-nav-text {
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    word-spacing: 6px;
+    font-family: 'Flamenco', cursive;
+    font-size: 2.5em;
+}
+
+.btn {
+    display: inline-block;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 200px;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: background-color 0.2s,color 0.2s,border 0.2s;    
+    background-color: #d67a1e;
+    border: 1px solid #fff;
+    margin-right: 20px
+}
+
+.btn:hover {
+    background-color: #de543b;
+}
+
+.segment {
+    max-height: 300px;
+    margin: 30px 100px auto;
+    
+}
+
+.segment .heading {
+    text-align: center;      
+}
+
+.segment .sub-heading {
+    text-align: center;
+}
+
+.segment .description {
+    margin-top: 60px
+}
+
+.features {
+    margin: 30px 100px; 
+    height: 430px;
+    
+}
+
+.features .img-style {
+    float: left;
+    height: 100%;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.content {
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 20px 30px;
+    
+}
+
+.content .description {
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+
+.content .fancy {
+    font-size: 1.5em;
+    margin-top: 25px;
+}
+
+
+
+
