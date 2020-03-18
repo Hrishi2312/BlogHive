@@ -41,6 +41,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="about_us/index.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href = "dreamHomePage/explorePg.php">Explore</a></li>
             <?php
             if(isset($_SESSION['id'])):
             ?>
@@ -78,69 +79,26 @@
             <i class="fas fa-chevron-right next"></i>
 
             <div class="post-wrapper">
-                <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
+              <?php
+              foreach($rs_result as $post){
+              ?>
+              <div class="post">
+                  <?php
+                      echo "<img src='Assets/images/postImage/".$post['image']."'"." class='slider-image'>";
+                  ?>
 
-                    <div class="post-info">
-                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
-                <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
-
-                    <div class="post-info">
-                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
-
-                    <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
-
-                    <div class="post-info">
-                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
-                    <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
-
-                    <div class="post-info">
-                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
-
-                    <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
-
-                    <div class="post-info">
-                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
-
-                    <div class="post">
-                    <img src="Assets/images/post1.jpeg" alt="" class="slider-image">
-
-                    <div class="post-info">
-                        <h4><a href="single.php">One day you will leave this world behind so live a life you will remember</a></h4>
-                        <i class="far fa-user">Satej kokate</i>
-                        &nbsp;
-                        <i class="fa fa-calendar" aria-hidden="true">2 October 2019</i>
-                    </div>
-                </div>
+                  <div class="post-info">
+                      <div class="post-heading">
+                      <h4><a href="../single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h4>
+                      </div>
+                      <i class="fa fa-calendar" aria-hidden="true"><?php echo date('d M, Y', strtotime($post['created_at'])); ?></i>
+                      &nbsp;
+                      <i class="fa fa-clock"><?php echo date('h:i:s A', strtotime($post['created_at'])); ?></i>
+                  </div>
+              </div>
+              <?php
+                  }
+              ?>
         </div>
         </div>
         <!--Page Slider-->
@@ -177,36 +135,10 @@
             };
             ?>
         </div>
-
-        <!--Side bar-->
-        <div class="sidebar">
-            <div class="section search">
-                <h1 class="search-text">Search</h1>
-                <form action="index.html" method="post">
-                    <input type="text" name="search-term" placeholder="Search..." class="text-input">
-                </form>
-            </div>
-            <div class="section topic">
-                <h2 class="topic-title">Categories</h2>
-                <ul>
-                  <?php
-                  $j = 0;
-                  while($j < sizeof($topics)) {
-                    $topic = $topics[$j]
-                  ?>
-                    <li><a href="#"><?php echo $topic['name']; ?></a></li>
-                  <?php
-                    $j++;
-                  }
-                  ?>
-                </ul>
-            </div>
-        </div>
-        <!--Sidebar-->
     </div>
 </div>
     <!--Content-->
-    
+
 
     <!--footer-->
     <div class="footer">

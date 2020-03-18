@@ -2,16 +2,16 @@
 include('App/Database/connect.php');
 if(isset($_POST['submit-button'])){
 $_SESSION['search-key'] = $_POST['key'];
-$key = $_POST['key'];    
-echo "<pre>",print_r($_POST),"</pre>";    
+$key = $_POST['key'];
+//echo "<pre>",print_r($_POST),"</pre>";
 }
 //for total count data
-$countSql = "SELECT COUNT(id) FROM post WHERE title LIKE '%key%' OR body LIKE '%key%'";  
-$tot_result = mysqli_query($conn, $countSql);  
+$countSql = "SELECT COUNT(id) FROM post WHERE title LIKE '%key%' OR body LIKE '%key%'";
+$tot_result = mysqli_query($conn, $countSql);
 
- 
-$row = mysqli_fetch_row($tot_result);  
-$total_records = $row[0];  
+
+$row = mysqli_fetch_row($tot_result);
+$total_records = $row[0];
 $total_pages = ceil($total_records / $limit);
 ?>
 
@@ -36,34 +36,34 @@ $total_pages = ceil($total_records / $limit);
 		margin-top: 20px;
 	}
     .page-wrapper {
-        border: 1px solid red;
         height: 800px;
         width:70%;
-    }    
+        margin: 0px auto;
+    }
     </style>
 </head>
 <body>
-    
+  <center><p style = "font-size: 30px;">Here are some results we found for the query: <?php echo $_SESSION['search-key']; ?></p></center>
     <div class="page-wrapper">
         <div id="target-content" class="clearfix">
         </div>
     </div>
-    
+
     <div>
     <ul class='pagination' id="pagination">
-		<?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):  
+		<?php if(!empty($total_pages)):for($i=1; $i<=$total_pages; $i++):
 		 if($i == 1):?>
-					<li class='page-item active'  id="<?php echo $i;?>"><a href='response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li> 
+					<li class='page-item active'  id="<?php echo $i;?>"><a href='response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
 		 <?php else:?>
 		 <li id="<?php echo $i;?>" class="page-item"><a href='response.php?page=<?php echo $i;?>' class="page-link"><?php echo $i;?></a></li>
-		 <?php endif;?> 
-		<?php endfor;endif;?> 
+		 <?php endif;?>
+		<?php endfor;endif;?>
 	</ul>
     </div>
     <script type="text/javascript">
          $(document).ready(function(){
 	     jQuery("#target-content").load("response.php?page=1");
-        
+
          jQuery("#pagination li").on('click',function(e){
          e.preventDefault();
          jQuery("#target-content").html('loading...');
@@ -71,9 +71,9 @@ $total_pages = ceil($total_records / $limit);
          jQuery(this).addClass('active');
          var pageNum = this.id;
          jQuery("#target-content").load("response.php?page=" + pageNum);
-         });    
+         });
         })
-        
+
     </script>
 </body>
 </html>

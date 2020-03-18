@@ -2,8 +2,8 @@
   include('App/Database/db.php');
   $result_set = selectAll('topic');
   /*foreach ($result_set as $value){
-      echo $value['name'],"<br>";      
-  }*/    
+      echo $value['name'],"<br>";
+  }*/
 ?>
 <!DOCTYPE>
 <html>
@@ -12,10 +12,46 @@
     <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/explorePg.css">
     <link href="https://fonts.googleapis.com/css?family=Candal|Lora&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href = "../Assets/css/style.css">
     <title>Blogger</title>
 
 </head>
 <body>
+  <header>
+      <div class="logo">
+          <h1 class="actLogo"><a href = "../index.php">Blogger</h1>
+      </div>
+      <i class="fa fa-bars menu-toggle"></i>
+      <ul class="nav">
+          <li><a href="../index.php"></a></li>
+          <li><a href="../index.php">Home</a></li>
+          <li><a href="../about_us/index.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <?php
+          if(isset($_SESSION['id'])):
+          ?>
+          <li><a href="#">
+              <i class="fa fa-user"></i>
+             <?php echo $_SESSION['username']; ?>
+              <i class="fa fa-chevron-down"></i>
+             </a>
+              <ul>
+                  <?php if($_SESSION['admin']): ?>
+                  <li><a href="../admin/posts/">Dashboard</a></li>
+                  <?php endif; ?>
+                  <li><a href="../logout.php" class="out">Log out</a></li>
+              </ul>
+          </li>
+          <?php
+      else:
+          ?>
+          <li><a href="../login.php">Login</a></li>
+          <li><a href="../signup.php">Sign Up</a></li>
+          <?php
+        endif;
+           ?>
+      </ul>
+  </header>
    <!--page wrapper-->
 
     <div class="page-wrapper">
@@ -23,23 +59,23 @@
         <h1 align = 'center'>Explore Blogs</h1>
         <div class="search-container">
             <form action="search.php" class="search-form" method="post">
-                <input type="text" class="text-input" placeholder="Search Blogs.." name = "key">
+                <input type="text" class="text-input1" placeholder="Search Blogs.." name = "key">
                 <button type="submit" class="btn" name = "submit-button">GO</button>
             </form>
         </div>
         <!--Page Slider-->
         <?php
         foreach ($result_set as $value){
-            
+
             $post_data = selectAll('post',['topic'=>$value['name']]);
-        ?>    
+        ?>
             <div class="post-slider">
                 <h1 class="slider-title"><?php echo $value['name'] ?></h1>
                 <i class="fas fa-chevron-left prev"></i>
                 <i class="fas fa-chevron-right next"></i>
 
                 <div class="post-wrapper">
-                    <?php 
+                    <?php
                     foreach($post_data as $post){
                     ?>
                     <div class="post">
@@ -49,27 +85,27 @@
 
                         <div class="post-info">
                             <div class="post-heading">
-                            <h4><a class = "title" href="single.php"><?php echo $post['title'] ?></a></h4>
+                            <h4><a href="../single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h4>
                             </div>
                             <i class="fa fa-calendar" aria-hidden="true"><?php echo date('d M, Y', strtotime($post['created_at'])); ?></i>
                             &nbsp;
                             <i class="fa fa-clock"><?php echo date('h:i:s A', strtotime($post['created_at'])); ?></i>
                         </div>
                     </div>
-                    <?php 
+                    <?php
                         }
                     ?>
                 </div>
             </div>
         <?php
         }
-        ?>    
-        
-        
+        ?>
+
+
         <!--Page Slider-->
     </div>
-        
-    
+
+
 
         <!--footer-->
     <div class="footer">
