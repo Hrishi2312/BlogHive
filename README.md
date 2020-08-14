@@ -1,6 +1,6 @@
 # BlogHive
 BlogHive was our Semester-5 Computer Engineering Project.
-The project isn't complete in any sense and there are some bugs here and their, however we're satisfied with the end result and it proved to be enough for the Semester Project Presentation.
+The project isn't complete in any sense and there are some bugs here and there, however we're satisfied with the end result and it proved to be enough for the Semester Project Presentation.
 We took a lot of design inspiration from various sources, including the YouTube channel, Awa Melvine's tutorial series.
 However, we did most of the backend code on our own.
 The technologies we have used are: Apache for PHP web server and MySQL for the database
