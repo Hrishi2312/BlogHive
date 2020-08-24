@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'https://bloghive.herokuapp.com';
 $user = 'root';
 $pass = '';
 $dbName = 'blog';
